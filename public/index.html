@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html ng-app="metrics-monitor">
+<head>
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+
+<script type="text/javascript" src="js/lib/jquery-1.11.2-min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+
+<script type="text/javascript" src="js/lib/angular.min.js"></script>
+<script type="text/javascript" src="js/lib/angular-resource.js"></script>
+<script type="text/javascript" src="js/lib/underscore.min.js"></script>
+
+<script type="text/javascript" src="js/app.js"></script>
+<script type="text/javascript" src="js/mainController.js"></script>
+</head>
+
+<body ng-controller="mainController">
+
+	<div class="container-fluid">
+		<p class="lead">Metrics: All times measured in milliseconds</p>
+
+		<div class="row">
+
+			<div ng-repeat="metric in metrics" class="col-md-3">
+				<div class="panel panel-default">
+					<div class="panel-heading">
+						<div class="panel-title">{{metric.queryName}}</div>
+					</div>
+					<dl class="dl-horizontal panel-body">
+						<dt>Rate per Second</dt>
+						<dd>{{metric.rate}}</dd>
+						<dt>Max</dt>
+						<dd>{{metric.snapshot.max}}</dd>
+						<dt>Min</dt>
+						<dd>{{metric.snapshot.min}}</dd>
+						<dt>Standard Deviation</dt>
+						<dd>{{metric.snapshot.stdDev}}</dd>
+						<dt>Median</dt>
+						<dd>{{metric.snapshot.median}}</dd>
+						<dt>75th Percentile</dt>
+						<dd>{{metric.snapshot.75thPercentile}}</dd>
+						<dt>95th Percentile</dt>
+						<dd>{{metric.snapshot.95thPercentile}}</dd>
+						<dt>98th Percentile</dt>
+						<dd>{{metric.snapshot.98thPercentile}}</dd>
+						<dt>99th Percentile</dt>
+						<dd>{{metric.snapshot.99thPercentile}}</dd>
+						<dt>999th Percentile</dt>
+						<dd>{{metric.snapshot.999thPercentile}}</dd>
+					</dl>
+					</div>
+			</div>
+		</div>
+
+	</div>
+
+</body>
+</html>
